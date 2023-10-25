@@ -1,0 +1,319 @@
+* {
+  margin: 0;
+  padding: 0;
+  
+}
+
+body {
+  height: 100%;
+  background-image:url(../image/img/img/800px-jules_verne_in_1892_0.jpg);
+}
+
+header{
+  position: fixed;
+  width: 100%;
+  background-color: #b19749;
+}
+
+.viewmore {
+  color: #ffffff;
+  background-color: #b19749;
+  padding: 2px 5px;
+  padding-right: 35px;
+  font-size: 12px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+}
+
+.timelineview {
+  padding: 50px 25px;
+
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  align-items: center;
+  height: 500px;
+
+  padding-bottom: 100px;
+}
+.timelineview .viewpoint-wrapper {
+  height: 400px;
+  width: 300px;
+  display: flex;
+  align-items: flex-start;
+}
+.timelineview .viewpoint-wrapper .viewpoint {
+  min-width: 200px;
+  width: 200px;
+  height: 125px;
+  position: relative;
+  margin: 0 50px;
+  margin-bottom: 75px;
+}
+.timelineview .viewpoint-wrapper .viewpoint img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+.timelineview .viewpoint-wrapper .viewpoint .date {
+  color: #b19749;
+  background-color: #ffffff;
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 150px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.timelineview .viewpoint-wrapper .viewpoint button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  font-size: 2rem;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #b19749;
+  padding: 15px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+.timelineview .viewpoint-wrapper .viewpoint .sticky {
+  position: absolute;
+  bottom: 0;
+  height: 75px;
+  width: 2px;
+  left: 50%;
+  background-color: #b19749;
+  transform: translate(-50%, 100%);
+}
+.timelineview .viewpoint-wrapper .viewpoint .sticky:after {
+  content: "";
+  width: 300px;
+  height: 2px;
+  background-color: #b19749;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%);
+}
+.timelineview .viewpoint-wrapper:nth-child(even) {
+  align-items: flex-end;
+}
+.timelineview .viewpoint-wrapper:nth-child(even) .viewpoint {
+  margin-bottom: 0px;
+}
+.timelineview .viewpoint-wrapper:nth-child(even) .viewpoint .sticky {
+  bottom: unset;
+  top: 0;
+  transform: translate(-50%, -100%);
+}
+.timelineview .viewpoint-wrapper:nth-child(even) .viewpoint .sticky:after {
+  bottom: unset;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -100%);
+}
+.timelineview .viewpoint-wrapper:nth-child(even) .viewpoint button {
+  bottom: unset;
+  top: 0;
+  transform: translate(50%, -50%);
+}
+.timelineview .viewpoint-wrapper:nth-child(even) .viewpoint .date {
+  top: unset;
+  bottom: -10px;
+}
+.timelineview .viewpoint-wrapper:first-child .sticky:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(-150px, 50%);
+  height: 25px;
+  width: 2px;
+  background-color: #b19749;
+}
+.timelineview .viewpoint-wrapper:last-child {
+  min-width: 325px;
+  position: relative;
+}
+.timelineview .viewpoint-wrapper:last-child:before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  transform: translatey(-50%) rotate(-45deg);
+  height: 15px;
+  right: 28px;
+  width: 15px;
+  display: flex;
+  justify-content: center;
+  border: solid #b19749;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+}
+
+.timelinemodal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 300;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #ffffff;
+}
+.timelinemodal.active {
+  opacity: 1;
+  visibility: visible;
+}
+.timelinemodal img {
+  position: absolute;
+  top: 100px;
+  bottom: 50px;
+  left: 80px;
+  right: 80px;
+  width: calc(100% - 160px);
+  height: calc(100% - 150px);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.timelinemodal .left,
+.timelinemodal .right,
+.timelinemodal .date,
+.timelinemodal .quantity,
+.timelinemodal .close {
+  position: absolute;
+  color: #b19749;
+}
+.timelinemodal .left,
+.timelinemodal .right,
+.timelinemodal .close {
+  top: 50%;
+  width: 35px;
+  height: 35px;
+  background-color: #b19749;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+.timelinemodal .left {
+  left: 25px;
+}
+.timelinemodal .right {
+  right: 25px;
+}
+.timelinemodal .close {
+  left: unset;
+  right: 25px;
+  top: 25px;
+}
+.timelinemodal .date {
+  display: flex;
+  text-transform: uppercase;
+  justify-content: flex-start;
+  align-items: center;
+  left: 80px;
+  top: 25px;
+  height: 35px;
+  font-size: 1.2rem;
+}
+.timelinemodal .quantity {
+  left: 80px;
+  bottom: 15px;
+  height: 35px;
+  display: flex;
+  text-transform: uppercase;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.timelinewrap {
+  position: relative;
+  min-height: 100%
+}
+
+#footer{
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+}
+
+.overlay{
+  position: fixed;
+  height: max-content;
+  background: #FFFFFF;
+  border-radius: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 50%;
+}
+
+.overlay .imgover {
+  margin: 3em 3em;
+  height:20em;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.imgover img {
+  width:100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.croix img {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  right: 24px;
+  top: 22px;
+  margin: unset;
+  cursor: pointer;
+}
+
+.overlay h4 {
+  margin: 1em auto 1em 2.1em;
+font-family: Aileron;
+font-weight: 900;
+font-size: 1.5em;
+}
+
+.overlay p {
+  margin: 0px 3em 2em 3em;
+  /*! width: 100%; */
+}
+
+.hidden{
+  display:none;
+}
+audio{
+
+text-align: center;
+}
+header h1{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
